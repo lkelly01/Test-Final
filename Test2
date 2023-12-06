@@ -1,0 +1,35 @@
+#Test 2
+
+import sys
+import os
+import unittest
+from Seniorfinal import BackendServer
+
+
+# Add the current directory and Downloads directory to the Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
+sys.path.append(downloads_path)
+
+class TestBackendServer(unittest.TestCase):
+    def setUp(self):
+        self.backend_server = BackendServer()
+
+    def test_is_strong_password(self):
+        # Test cases for is_strong_password function
+        self.assertTrue(self.backend_server.is_strong_password("StrongPassword123"))
+        self.assertFalse(self.backend_server.is_strong_password("Weak123"))
+
+    def test_fetch_unread_emails(self):
+        # Test cases for fetch_unread_emails function
+        # Mock the actual fetching logic or adjust according to your actual implementation
+        self.backend_server.users["mock_user@example.com"] = {"name": "Mock User", "password": "Mock123", "reminder_time": "09:00"}
+        unread_emails = self.backend_server.fetch_unread_emails("mock_user@example.com")
+        self.assertEqual(len(unread_emails), 2)  # Adjust based on your actual implementation
+
+    def test_custom_function(self):
+        # Test case for custom_function
+        input_data = "test_input"
+        expected_output = f"Processed: {input_data}"
+        result = self.backend_server.custom_function(input_data)
+        self.assertEqual(result, expected_output)
