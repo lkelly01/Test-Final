@@ -1,21 +1,20 @@
-# Test 1 -Final
 import sys
 import os
 from Seniorfinal import BackendServer
 
-# Get the directory of the current script
+
 current_script_directory = os.path.dirname(os.path.abspath(__file__))
 
-# Print current script directory for debugging
+
 print("Current Script Directory:", current_script_directory)
 
-# Add the current script directory to the Python path
+
 sys.path.append(current_script_directory)
 
-# Print sys.path after adding current script directory
+
 print("Updated sys.path:", sys.path)
 
-# Add the Downloads directory to the Python path
+
 downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
 sys.path.append(downloads_path)
 
@@ -23,21 +22,22 @@ sys.path.append(downloads_path)
 print("Updated sys.path with Downloads:", sys.path)
 
 import unittest
-from Seniorfinal import BackendServer  # Adjust the import statement here
+from Seniorfinal import BackendServer  
 
 class TestBackendServer(unittest.TestCase):
     def setUp(self):
         self.backend_server = BackendServer()
 
     def test_is_strong_password(self):
-        # Test cases for is_strong_password function
+      
         self.assertTrue(self.backend_server.is_strong_password("StrongPassword123"))
         self.assertFalse(self.backend_server.is_strong_password("Weak123"))
 
     def test_fetch_unread_emails(self):
-        # Test cases for fetch_ugit filter-repo --path-rename "Visual Studio Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework" --path-rename "matlab_R2023b_maci64.dmg"
+      
+Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework" --path-rename "matlab_R2023b_maci64.dmg"
 nread_emails function
-        # Mock the actual fetching logic or adjust according to your actual implementation
+    
         self.backend_server.users["mock_user@example.com"] = {"name": "Mock User", "password": "Mock123", "reminder_time": "09:00"}
         unread_emails = self.backend_server.fetch_unread_emails("mock_user@example.com")
 
@@ -45,3 +45,4 @@ nread_emails function
 
 if __name__ == '__main__':
     unittest.main()
+
